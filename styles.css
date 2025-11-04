@@ -7,8 +7,9 @@
 
 html, body {
     height: 100%;
-    margin: 20px; /* adds space around the page */
-    padding: 20px; /* adds space inside the body */
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .about-us-container {
@@ -23,12 +24,23 @@ body {
     background: linear-gradient(135deg, #FFAD60, #FF7E5F, #FFD2A6);
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .rotating-logo {
     animation: spin 4s linear infinite;
     width: 200px;
     margin-bottom: 30px;
+}
+
+ul.skill-list {
+    list-style-type: square;
+    margin: 0;
+    padding: 0;
+}
+ul.skill-list li {
+    display: inline-block;
+    margin-right: 15px;
 }
 
 button {

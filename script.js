@@ -69,12 +69,29 @@ document.getElementById("view-roles-btn").addEventListener("click", function() {
 
 
 // Add job role button functionality
-document.getElementById("addJobRoleBtn").addEventListener("click", function() {
-    const title = prompt("Enter job title:");
-    const description = prompt("Enter job description:");
-    const skills = prompt("Enter required skills (comma separated):").split(",").map(skill => skill.trim());
-    ourCompany.addJobRole(title, description, skills);
-    alert("Job role added successfully!");
+const roleInput = document.getElementById("role");
+const descriptionInput = document.getElementById("description");
+const skillsInput = document.getElementById("skills");
+const addJobRoleBtn = document.getElementById("addJobRoleBtn");
+
+addJobRoleBtn.addEventListener("click", function() {
+    const role = roleInput.value;
+    const description = descriptionInput.value;
+    const skills = skillsInput.value.split(",").map(skill => skill.trim());
+
+    if (!role || !description || skills.length === 0) {
+        alert("Please enter both a job role, description and required skills.");
+        return;
+    }
+
+    ourCompany.addJobRole(role, description, skills);
+
+    // Clear the inputs
+    roleInput.value = "";
+    descriptionInput.value = "";
+    skillsInput.value = "";
+
+    //Refresh the job roles display if it's visible
+    document.getElementById("view-roles-btn").click();
 });
 
-// Display company info button functionality
