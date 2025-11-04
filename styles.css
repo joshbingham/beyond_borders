@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+html, body {
+    height: 100%;
+    margin: 20px; /* adds space around the page */
+    padding: 20px; /* adds space inside the body */
+}
+
+.about-us-container {
+    max-width: 800px;  
+    margin: 40px auto; 
+    padding: 30px;     
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 10px; 
+}
+
+body {
+    background: linear-gradient(135deg, #FFAD60, #FF7E5F, #FFD2A6);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.rotating-logo {
+    animation: spin 4s linear infinite;
+    width: 200px;
+    margin-bottom: 30px;
+}
+
+button {
+    background-color: #007B7F; /* Base color */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* subtle shadow */
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #009B9F; /* slightly brighter teal on hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

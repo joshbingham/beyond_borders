@@ -31,6 +31,50 @@ const ourCompany = {
         }
     ],
     headquartersLocation: "Brighton, UK",
+    addJobRole: function(title, description, skillsRequired) {
+        this.jobRoles.push({
+            title: title,
+            description: description,
+            skillsRequired: skillsRequired
+        });
+    }
+}
+
+// View roles button functionality with innerHTML
+document.getElementById("view-roles-btn").addEventListener("click", function() { 
+    const jobsDiv = document.getElementById("job-roles");
+    jobsDiv.innerHTML = ""; // Clear previous content
+    jobsDiv.style.display = "block"; 
+    ourCompany.jobRoles.forEach(role => {
+        const title = document.createElement("h2");
+        title.textContent = role.title;
+        const description = document.createElement("p");
+        description.textContent = role.description;
+        const skillsHeading = document.createElement("h3");
+        skillsHeading.textContent = "Skills Required:";
+        const skills = document.createElement("ul");    
+        role.skillsRequired.forEach(skill => {
+            const skillItem = document.createElement("li");
+            skillItem.textContent = skill;
+            skills.appendChild(skillItem);
+        });
+        jobsDiv.appendChild(title);
+        jobsDiv.appendChild(description);
+        jobsDiv.appendChild(skillsHeading);
+        jobsDiv.appendChild(skills);
+    });
+});
+
     
 
-}
+
+// Add job role button functionality
+document.getElementById("addJobRoleBtn").addEventListener("click", function() {
+    const title = prompt("Enter job title:");
+    const description = prompt("Enter job description:");
+    const skills = prompt("Enter required skills (comma separated):").split(",").map(skill => skill.trim());
+    ourCompany.addJobRole(title, description, skills);
+    alert("Job role added successfully!");
+});
+
+// Display company info button functionality
